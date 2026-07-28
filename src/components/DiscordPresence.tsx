@@ -12,7 +12,7 @@ import { useEffect, useState, createContext, useContext } from 'react';
  * - Join server Lanyard: https://discord.gg/lanyard
  * - Hubungkan Spotify ke Discord: Settings → Connections → Spotify
  */
-const USER_ID = '473723354570817536';
+const USER_ID: string = '473723354570817536';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -79,8 +79,8 @@ export function LanyardProvider({ children }: { children: React.ReactNode }) {
   const [data, setData] = useState<LanyardData | null>(null);
 
   useEffect(() => {
-    // Jangan connect jika ID belum diganti
-    if (USER_ID === '473723354570817536') return;
+    // Jangan connect jika ID belum diganti atau kosong
+    if (!USER_ID || USER_ID === 'YOUR_DISCORD_USER_ID') return;
 
     let ws: WebSocket;
     let heartbeatId: ReturnType<typeof setInterval>;
@@ -275,16 +275,17 @@ function ActivityCard({ activity }: { activity: Activity }) {
 
 export function DiscordAvatarTrigger({ onClick }: { onClick: () => void }) {
   const data = useLanyard();
-  if (!data) return null;
 
-  const statusColor = STATUS_COLORS[data.discord_status] || STATUS_COLORS.offline;
-  const avatarUrl = `https://cdn.discordapp.com/avatars/${USER_ID}/${data.discord_user.avatar}.png?size=64`;
+  const statusColor = data ? (STATUS_COLORS[data.discord_status] || STATUS_COLORS.offline) : STATUS_COLORS.offline;
+  const avatarUrl = (data && data.discord_user?.avatar)
+    ? `https://cdn.discordapp.com/avatars/${USER_ID}/${data.discord_user.avatar}.png?size=64`
+    : '/pfp.webp';
 
   return (
     <button
       onClick={onClick}
       title="Discord presence"
-      className="relative group flex-shrink-0"
+      className="relative group flex-shrink-0 cursor-pointer"
       style={{ willChange: 'transform', transition: 'transform 0.15s ease-out' }}
       onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; }}
       onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
@@ -293,9 +294,11 @@ export function DiscordAvatarTrigger({ onClick }: { onClick: () => void }) {
     >
       <img
         src={avatarUrl}
-        alt={data.discord_user.display_name}
+        alt="Discord presence"
         className="w-8 h-8 rounded-full object-cover ring-1 ring-neutral-700"
-        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+        onError={(e) => {
+          e.currentTarget.src = '/pfp.webp';
+        }}
       />
       <span
         className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-neutral-900"
