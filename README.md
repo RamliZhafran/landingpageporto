@@ -1,32 +1,77 @@
-# React + TypeScript + Vite
+# 🌐 ramlizhafran's space
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Welcome to my personal interactive portfolio space! Built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**. This website features an OS-style window UI, interactive background animations, real-time Discord presence, and Spotify integrations.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [ramlizhafran.vercel.app](https://webspace-chi.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 👨‍💻 About Me
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Hi! I'm **Ramli Zhafran**, a developer and tech enthusiast passionate about building modern, responsive, and aesthetic web applications. 
 
-## Expanding the Oxlint configuration
+- 🎓 **Focus:** Computer Science, Web Development, Software Engineering
+- 🛠️ **Favorite Stack:** React, TypeScript, Tailwind CSS, Node.js
+- 🎯 **Goal:** Crafting quiet, elegant, and interactive digital spaces that stand out.
+- 📬 **Connect with me:** [Discord](https://discord.com/users/473723354570817536) | [GitHub](https://github.com/RamliZhafran)
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+---
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+## ✨ Features & Highlights
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+- 🪟 **Draggable Window OS System:** Windows (`about.txt`, `links.html`, `gallery.jpg`, `discord.exe`) that can be dragged and layered on desktop and viewed as bottom-sheets on mobile.
+- 📡 **Real-time Discord Presence:** Live online/idle/dnd status indicator & game activity stream connected via **Lanyard WebSocket API**.
+- 🎵 **Live Spotify Player:** Real-time album art, song progress bar, and elapsed time tracking.
+- 🔤 **Decrypted Text Animation:** Dynamic scramble-and-reveal text animations powered by Framer Motion.
+- ⭐ **Interactive Star Background:** Particle canvas featuring physics-based mouse repulsion and twinkling stars.
+- 🔊 **Interactive Sound Effects:** Subtle audio feedback when interacting with windows and buttons.
+- 📱 **Fully Responsive:** Optimized layouts for both mobile devices and desktop displays.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool:** [Vite 8](https://vite.dev/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://motion.dev/)
+- **Icons:** [Lucide React](https://lucide.dev/) + [Simple Icons](https://simpleicons.org/)
+- **Live Data:** [Lanyard API](https://lanyard.rest/) (WebSocket)
+- **Deployment:** [Vercel](https://vercel.com/)
+
+---
+
+## 🚀 Getting Started Locally
+
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) (v18+) installed.
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/RamliZhafran/landingpageporto.git
+   cd landingpageporto
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Run development server:**
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:5173/` in your browser.
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📝 License
+
+Distributed under the MIT License. Feel free to explore and use the code as inspiration for your own portfolio!
