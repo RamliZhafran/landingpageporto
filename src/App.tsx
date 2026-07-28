@@ -72,6 +72,7 @@ function App() {
     '/assets/img/laut.jpeg',
     '/assets/img/game.jpeg',
     '/assets/img/ayam1.jpeg',
+    '/assets/img/nuklirppt.jpeg',
   ];
 
   // ─── SOCIAL LINKS ──────────────────────────────────────────────────────
