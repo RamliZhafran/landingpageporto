@@ -81,6 +81,7 @@ function App() {
     discord: { url: 'https://discord.com/users/473723354570817536', label: 'Discord' },         // contoh: 'https://discord.com/users/123456789'
     instagram: { url: 'https://instagram.com/ramlizhaf', label: 'Instagram' },      // contoh: 'https://instagram.com/username'
     github: { url: 'https://github.com/RamliZhafran', label: 'GitHub' },             // contoh: 'https://github.com/username'
+    linkedin: { url: 'https://linkedin.com/in/ramlizhafran', label: 'LinkedIn' },    // contoh: 'https://linkedin.com/in/username'
   };
   // ─────────────────────────────────────────────────────────────────────────
 
@@ -274,6 +275,26 @@ function App() {
               </div>
               <span className="hidden sm:block text-sm font-mono text-neutral-500 group-hover:text-white transition-colors">
                 {socialLinks.github.label}
+              </span>
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href={socialLinks.linkedin.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-row sm:flex-col items-center gap-3 transition-colors w-full sm:w-20"
+            >
+              <div className="p-4 rounded-xl bg-neutral-800/50 group-hover:bg-[#0A66C2]/20 transition-colors border border-neutral-700 group-hover:border-[#0A66C2]/50 flex items-center justify-start sm:justify-center w-full">
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 fill-neutral-400 group-hover:fill-[#0A66C2] transition-colors group-hover:scale-110 duration-300" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+                <span className="ml-2 text-xs sm:text-sm font-mono text-neutral-500 group-hover:text-[#0A66C2] transition-colors sm:hidden">
+                  {socialLinks.linkedin.label}
+                </span>
+              </div>
+              <span className="hidden sm:block text-sm font-mono text-neutral-500 group-hover:text-[#0A66C2] transition-colors">
+                {socialLinks.linkedin.label}
               </span>
             </a>
           </div>
