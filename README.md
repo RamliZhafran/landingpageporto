@@ -2,7 +2,8 @@
 
 Welcome to my personal interactive portfolio space! Built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**. This website features an OS-style window UI, interactive background animations, real-time Discord presence, and Spotify integrations.
 
-🔗 **Live Demo:** [ramlizhafran.vercel.app](https://webspace-chi.vercel.app)
+🔗 **Live Demo:** [ramlizhafran.vercel.app](🔗 **Live Demo:** [ramlizhafran.vercel.app](https.vercel.app)
+)
 
 ---
 
