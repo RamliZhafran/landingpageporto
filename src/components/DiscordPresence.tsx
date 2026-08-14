@@ -201,16 +201,16 @@ function SpotifyCard({ spotify }: { spotify: SpotifyData }) {
       </div>
       <div className="min-w-0 flex-1">
         <p className="text-[11px] font-semibold text-[#1DB954] uppercase tracking-wider mb-0.5">Listening to Spotify</p>
-        <p className="text-sm font-semibold text-white truncate leading-tight">{spotify.song}</p>
-        <p className="text-xs text-neutral-400 truncate leading-tight mt-0.5">by {spotify.artist}</p>
-        <p className="text-xs text-neutral-500 truncate leading-tight">on {spotify.album}</p>
+        <p className="text-sm font-semibold text-white dark:text-white light:text-neutral-900 truncate leading-tight">{spotify.song}</p>
+        <p className="text-xs text-neutral-400 dark:text-neutral-400 light:text-neutral-600 truncate leading-tight mt-0.5">by {spotify.artist}</p>
+        <p className="text-xs text-neutral-500 dark:text-neutral-500 light:text-neutral-500 truncate leading-tight">on {spotify.album}</p>
         <div className="mt-2 flex items-center gap-2">
-          <span className="text-[10px] text-neutral-600 flex-shrink-0">{elapsed}</span>
-          <div className="flex-1 h-1 bg-neutral-700 rounded-full overflow-hidden">
+          <span className="text-[10px] text-neutral-600 dark:text-neutral-600 light:text-neutral-400 flex-shrink-0">{elapsed}</span>
+          <div className="flex-1 h-1 bg-neutral-700 dark:bg-neutral-700 light:bg-slate-300 rounded-full overflow-hidden">
             <div className="h-full bg-[#1DB954] rounded-full transition-all duration-1000"
               style={{ width: `${progress}%` }} />
           </div>
-          <span className="text-[10px] text-neutral-600 flex-shrink-0">{total}</span>
+          <span className="text-[10px] text-neutral-600 dark:text-neutral-600 light:text-neutral-400 flex-shrink-0">{total}</span>
         </div>
       </div>
     </div>
@@ -261,11 +261,11 @@ function ActivityCard({ activity }: { activity: Activity }) {
         )}
       </div>
       <div className="min-w-0 flex-1">
-        <p className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider mb-0.5">Playing a Game</p>
-        <p className="text-sm font-semibold text-white truncate leading-tight">{activity.name}</p>
-        {activity.details && <p className="text-xs text-neutral-400 truncate leading-tight mt-0.5">{activity.details}</p>}
-        {activity.state && <p className="text-xs text-neutral-500 truncate leading-tight">{activity.state}</p>}
-        {elapsed && <p className="text-xs text-neutral-600 mt-1">{elapsed}</p>}
+        <p className="text-[11px] font-semibold text-neutral-400 dark:text-neutral-400 light:text-neutral-600 uppercase tracking-wider mb-0.5">Playing a Game</p>
+        <p className="text-sm font-semibold text-white dark:text-white light:text-neutral-900 truncate leading-tight">{activity.name}</p>
+        {activity.details && <p className="text-xs text-neutral-400 dark:text-neutral-400 light:text-neutral-600 truncate leading-tight mt-0.5">{activity.details}</p>}
+        {activity.state && <p className="text-xs text-neutral-500 dark:text-neutral-500 light:text-neutral-500 truncate leading-tight">{activity.state}</p>}
+        {elapsed && <p className="text-xs text-neutral-600 dark:text-neutral-600 light:text-neutral-400 mt-1">{elapsed}</p>}
       </div>
     </div>
   );
@@ -335,19 +335,19 @@ export function DiscordPresenceContent() {
           <img
             src={avatarUrl}
             alt={data.discord_user.display_name}
-            className="w-16 h-16 rounded-full object-cover ring-2 ring-neutral-700"
+            className="w-16 h-16 rounded-full object-cover ring-2 ring-neutral-700 dark:ring-neutral-700 light:ring-slate-300"
             onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
           <span
-            className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full border-2 border-neutral-900"
+            className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full border-2 border-neutral-900 dark:border-neutral-900 light:border-slate-100"
             style={{ backgroundColor: statusColor }}
           />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-base font-semibold text-white leading-tight">
+          <p className="text-base font-semibold text-white dark:text-white light:text-neutral-900 leading-tight">
             {data.discord_user.display_name}
           </p>
-          <p className="text-xs text-neutral-500 leading-tight">
+          <p className="text-xs text-neutral-500 dark:text-neutral-500 light:text-neutral-600 leading-tight">
             @{data.discord_user.username}
           </p>
         </div>
@@ -361,14 +361,14 @@ export function DiscordPresenceContent() {
         </span>
       </div>
 
-      {hasContent && <div className="border-t border-neutral-800" />}
+      {hasContent && <div className="border-t border-neutral-800 dark:border-neutral-800 light:border-slate-300" />}
 
       {gameActivities.map((act) => (
         <ActivityCard key={act.id} activity={act} />
       ))}
 
       {gameActivities.length > 0 && data.listening_to_spotify && (
-        <div className="border-t border-neutral-800" />
+        <div className="border-t border-neutral-800 dark:border-neutral-800 light:border-slate-300" />
       )}
 
       {data.listening_to_spotify && data.spotify && (

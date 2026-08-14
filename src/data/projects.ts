@@ -14,40 +14,32 @@ export interface Project {
 // ─── KUSTOMISASI ────────────────────────────────────────────────────────
 // Ganti / tambah proyek di bawah ini. Urutan menentukan urutan tampil
 // di tree (dari atas ke bawah). "path" ditulis gaya folder biar nyambung
-// sama tema terminal di halaman ini.
+// sama tema terminal di halaman ini. Semua repoUrl di bawah sudah dicek,
+// beneran ada dan publik.
 export const projects: Project[] = [
   {
-    path: 'thesis/HTR-Code-Package-PeLUIt-40',
+    path: 'coursework/decision-tree',
     description:
-      'Neutronics simulation of the PeLUIt-40 pebble-bed HTGR using the HTR Code Package and OpenMC. Compares OTTO and MEDUL fuel management across three power levels and extends the flux analysis out to the reactor pressure vessel.',
-    tags: ['OpenMC', 'HTR Code Package', 'Python', 'Nuclear Physics'],
-    year: '2025',
-    repoUrl: 'https://github.com/RamliZhafran/HTR-Code-Package-PeLUIt-40',
+      'scikit-learn decision tree classifier and regressor, tested on a logic-gate classification task and curve-fitting against sinusoidal data.',
+    tags: ['scikit-learn', 'Python', 'Machine Learning'],
+    year: '2024',
+    repoUrl: 'https://github.com/RamliZhafran/DecisionTree',
   },
   {
-    path: 'nuclear/Openmc_KP',
+    path: 'research/openmc-triso',
     description:
-      'OpenMC Monte Carlo simulations for nuclear reactor physics. Jupyter notebooks with geometry, material definitions, and criticality calculations for HTGR analysis.',
-    tags: ['OpenMC', 'Jupyter Notebook', 'Python', 'Nuclear Physics'],
+      'An OpenMC model of a TRISO fuel particle for the PeLUIt-40 pebble-bed HTGR: kernel, buffer, and PyC/SiC coating layers, randomly packed into a pebble and run through tallies for neutronics analysis.',
+    tags: ['OpenMC', 'Python', 'Nuclear Physics', 'TRISO'],
     year: '2025',
-    repoUrl: 'https://github.com/RamliZhafran/Openmc_KP',
+    repoUrl: 'https://github.com/RamliZhafran/OpenmcPebble',
   },
   {
-    path: 'dotfiles/ricingWSL',
+    path: 'dotfiles/ricing-wsl',
     description:
-      'A Catppuccin Mocha desktop built around komorebi tiling WM, YASB status bar, and whkd keybindings, tuned for a keyboard-first workflow on WSL2/Windows.',
-    tags: ['komorebi', 'YASB', 'whkd', 'Lua', 'Windows'],
-    year: '2026',
+      'Neovim and Starship prompt configuration for a WSL2 development setup.',
+    tags: ['Neovim', 'Starship', 'WSL2'],
+    year: '2025',
     repoUrl: 'https://github.com/RamliZhafran/ricingWSL',
   },
-  {
-    path: 'web/landingpageporto',
-    description:
-      'This site. An OS-window desktop portfolio with draggable windows, starfield background, and live Discord presence pulled from Lanyard.',
-    tags: ['React', 'TypeScript', 'Vite', 'Framer Motion', 'Tailwind'],
-    year: '2026',
-    repoUrl: 'https://github.com/RamliZhafran/landingpageporto',
-    liveUrl: 'https://ramlispace.vercel.app',
-  },
 ];
-// ──────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────
