@@ -4,6 +4,9 @@ import { DraggableWindow } from './components/DraggableWindow';
 import { Volume2, VolumeX, User, Link2, Images } from 'lucide-react';
 import DecryptedText from "./components/DecryptedText";
 import { LanyardProvider, DiscordAvatarTrigger, DiscordPresenceContent } from './components/DiscordPresence';
+import { LoadingScreen } from './components/LoadingScreen';
+import { TerminalGate } from './components/TerminalGate';
+import { ProjectsSection } from './components/ProjectsSection';
 
 function App() {
   const [windows, setWindows] = useState({
@@ -24,6 +27,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [decryptKey, setDecryptKey] = useState(0);
   const [decryptDirection, setDecryptDirection] = useState<'start' | 'center' | 'end'>('start');
+  const [showProjects, setShowProjects] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -91,6 +95,18 @@ function App() {
 
   const toggleMute = () => setIsMuted(prev => !prev);
 
+  const scrollToProjects = () => {
+    setShowProjects(true);
+    window.requestAnimationFrame(() => {
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    });
+  };
+
+  const returnToHero = () => {
+    document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+    window.setTimeout(() => setShowProjects(false), 550);
+  };
+
   const bringWindowToFront = (key: keyof typeof windows) => {
     setWindowZ(prev => ({
       ...prev,
@@ -150,6 +166,7 @@ function App() {
   return (
     <LanyardProvider>
       <>
+        <LoadingScreen />
         <StarBackground />
 
         {/* Mute Toggle */}
@@ -387,11 +404,11 @@ function App() {
           </div>
         </div>
 
-        {/* ── Main Content ── */}
-        <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
+        {/* ── Hero Section ── */}
+        <section id="hero" className="relative z-10 h-screen max-h-screen overflow-hidden flex flex-col items-center justify-center gap-4 px-3 sm:px-4">
 
           {/* Desktop View — Card Window */}
-          <div className="hidden md:block w-full max-w-3xl min-h-[450px] bg-neutral-900/50 backdrop-blur-md border border-neutral-800 rounded-xl shadow-2xl animate-fade-in-up flex flex-col overflow-hidden">
+          <div className="hidden md:block w-full max-w-3xl h-[min(58vh,450px)] bg-neutral-900/50 backdrop-blur-md border border-neutral-800 rounded-xl shadow-2xl animate-fade-in-up flex flex-col overflow-hidden">
             {/* Window Header */}
             <div className="h-10 bg-neutral-900/80 border-b border-neutral-800 flex items-center justify-between px-4 relative">
               <span className="text-sm font-medium text-neutral-400">home</span>
@@ -405,7 +422,7 @@ function App() {
                   hi!{" "}
                   <DecryptedText
                     key={decryptKey}
-                    text="i'm ramlizhafran"
+                    text="Ramli Zhafran"
                     animateOn="view"
                     speed={80}
                     maxIterations={15}
@@ -460,7 +477,7 @@ function App() {
                 hi!{" "}
                 <DecryptedText
                   key={decryptKey}
-                  text="i'm ramlizhafran"
+                  text="Ramli Zhafran"
                   animateOn="view"
                   speed={80}
                   maxIterations={15}
@@ -507,10 +524,18 @@ function App() {
             </div>
           </div>
 
-          <footer className="absolute bottom-6 text-neutral-500 text-sm">
+          {/* Tap-to-compile gate → scrolls into the Projects section below */}
+          <TerminalGate isMuted={isMuted} onComplete={scrollToProjects} />
+        </section>
+
+        {/* ── Projects Section ── */}
+        {showProjects && <ProjectsSection onReturnHome={returnToHero} />}
+
+        {showProjects && (
+          <footer className="relative z-10 py-10 text-center text-neutral-500 text-sm">
             &copy; {new Date().getFullYear()} ramlizhafran
           </footer>
-        </div>
+        )}
       </>
     </LanyardProvider>
   );
