@@ -24,6 +24,18 @@ export const TypewriterSubtitle = ({
 
   useEffect(() => {
     const targetPhrase = phrases[phraseIndex];
+    const nextPhrase = phrases[(phraseIndex + 1) % phrases.length];
+    
+    // Calculate common prefix length so we don't erase shared words (e.g., "Jack of all trades ")
+    let commonPrefixLength = 0;
+    while (
+      commonPrefixLength < targetPhrase.length &&
+      commonPrefixLength < nextPhrase.length &&
+      targetPhrase[commonPrefixLength] === nextPhrase[commonPrefixLength]
+    ) {
+      commonPrefixLength++;
+    }
+
     let timer: ReturnType<typeof setTimeout>;
 
     if (!isDeleting && currentText.length < targetPhrase.length) {
@@ -36,13 +48,13 @@ export const TypewriterSubtitle = ({
       timer = setTimeout(() => {
         setIsDeleting(true);
       }, pauseTime);
-    } else if (isDeleting && currentText.length > 0) {
-      // Backspace from right to left letter by letter
+    } else if (isDeleting && currentText.length > commonPrefixLength) {
+      // Backspace ONLY down to the common prefix (preserving "Jack of all trades ")
       timer = setTimeout(() => {
         setCurrentText(targetPhrase.slice(0, currentText.length - 1));
       }, deletingSpeed);
-    } else if (isDeleting && currentText.length === 0) {
-      // Move to next phrase
+    } else if (isDeleting && currentText.length <= commonPrefixLength) {
+      // Move to next phrase and start typing suffix
       setIsDeleting(false);
       setPhraseIndex((prev) => (prev + 1) % phrases.length);
     }

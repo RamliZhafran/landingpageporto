@@ -472,7 +472,11 @@ function App() {
                   phrases={[
                     'welcome to a quiet ordinary space',
                     'Jack of all trades engineer',
+                    'Jack of all trades scientist',
                   ]}
+                  typingSpeed={50}
+                  deletingSpeed={30}
+                  pauseTime={2000}
                   className="text-base sm:text-lg text-neutral-400 dark:text-neutral-400 light:text-neutral-700 font-normal"
                 />
               </div>
@@ -535,7 +539,11 @@ function App() {
                 phrases={[
                   'welcome to a quiet ordinary space',
                   'Jack of all trades engineer',
+                  'Jack of all trades scientist',
                 ]}
+                typingSpeed={50}
+                deletingSpeed={30}
+                pauseTime={2000}
                 className="text-sm sm:text-base text-neutral-400 dark:text-neutral-400 light:text-neutral-700 font-normal"
               />
             </div>
