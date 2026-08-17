@@ -57,6 +57,7 @@ export const projects: Project[] = [
     tags: ['React', 'JavaScript', 'Vite', 'Tailwind CSS'],
     year: '2026',
     repoUrl: 'https://github.com/RamliZhafran/Money-tracker',
+    liveUrl: 'https://ezmoneytracker.vercel.app/',
   },
 ];
 // ─────────────────────────────────────────────────────────────────────────
