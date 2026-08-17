@@ -218,7 +218,7 @@ function App() {
               <div className="flex items-center gap-6">
                 {/* Profile Photo — ganti /pfp.webp dengan foto kamu */}
                 <img
-                  src="/pp_seasonsofblossom.webp"
+                  src="/IMG_20250903_232928_302-1.webp"
                   alt="Ramli Zhafran"
                   className="w-28 h-28 rounded-full object-cover border-2 border-neutral-700 flex-shrink-0"
                   onError={(e) => {

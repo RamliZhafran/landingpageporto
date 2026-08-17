@@ -17,6 +17,23 @@ export interface Project {
 // sama tema terminal di halaman ini. Semua repoUrl di bawah sudah dicek,
 // beneran ada dan publik.
 export const projects: Project[] = [
+{
+  path: 'Robot-Soccer',
+  description:
+    'A simple Arduino-based soccer robot controlled through the Serial Monitor. The robot uses dual DC motors with PWM speed control and supports forward, backward, left, right, and stop movement commands.',
+  tags: ['Arduino IDE', 'Arduino', 'C++', 'Robotics'],
+  year: '2023',
+  repoUrl: 'https://github.com/RamliZhafran/Robot-Soccer',
+},
+    {
+    path: 'Temperature-IoT',
+    description:
+      'An IoT-based temperature and humidity monitoring system using an ESP8266/ESP32 and DHT11/DHT22 sensor. The system collects environmental data and transmits it to the Blynk platform over Wi-Fi for real-time monitoring through a mobile dashboard. Developed using Arduino C++ with Blynk and DHT sensor libraries.',
+    tags: ['Arduino IDE', 'IoT', 'ESP32', 'C++'],
+    year: '2023',
+    repoUrl: 'https://github.com/RamliZhafran/IoT-Suhu',
+  },
+
   {
     path: 'coursework/decision-tree',
     description:
@@ -34,12 +51,12 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/RamliZhafran/OpenmcPebble',
   },
   {
-    path: 'dotfiles/ricing-wsl',
+    path: 'Money-tracker',
     description:
-      'Neovim and Starship prompt configuration for a WSL2 development setup.',
-    tags: ['Neovim', 'Starship', 'WSL2'],
-    year: '2025',
-    repoUrl: 'https://github.com/RamliZhafran/ricingWSL',
+      'SmartReceipt Tracker: A client-side personal finance web application that uses OCR to extract transaction data from receipts, automatically categorizes expenses, and stores financial records locally in the browser.',
+    tags: ['React', 'JavaScript', 'Vite', 'Tailwind CSS'],
+    year: '2026',
+    repoUrl: 'https://github.com/RamliZhafran/Money-tracker',
   },
 ];
 // ─────────────────────────────────────────────────────────────────────────
